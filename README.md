@@ -2,17 +2,16 @@
 Multi-Trait Genome-Wide Association Analysis
 
 ## Installation
-Please run the following command in R to install the MultiABEL package:
+Run the following command in R to install the MultiABEL package:
+```
+install.packages("MultiABEL")
+```
+or its developer version:
 ```
 install.packages("MultiABEL", repos="http://R-Forge.R-project.org")
 ```
-For Mac users, please download the source .tar.gz and install via 
-```
-R CMD INSTALL .. .tar.gz
-```
-in your terminal. You need Fortran 4.8 compiler.
 
-In R, load the package via:
+MultiABEL can be loaded in R via:
 ```
 library(MultiABEL)
 ```
