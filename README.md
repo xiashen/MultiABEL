@@ -142,12 +142,19 @@ rs3712159 rs3712159 0.0099905862 0.034535222 0.77236186  0.025174520 -0.02666285
 ```
 There is not a substantial structure in this example data, so we do not expect to see inflated signals being corrected away by linear mixed models. 
 
+## Multi-Trait GWAS using Summary Association Statistics
+
+### Loading multiple GWAS summary statistics
+
+MultiABEL allows convenient and fast GWAS of multiple phenotypes directly from summary association statistics, i.e. genome-wide (or sufficiently large subset of) association results containing estimated genetic effects, standard errors, and reference alleles information. Here, we directly provide an example, and the data can be obtained from: <https://www.dropbox.com/sh/2xftha9wcanobo4/AAD6ygCMyUv_gpDtIwRtw-Mta?dl=0>
+
+
 ## For Help 
 For direct R documentation of the two functions above, you can simply use question mark in R:
 ```
 ?MultiLoad
 ?Multivariate
 ```
-If you have specific questions, we advice you to use our GenABEL project forum at www.genabel.org and for urgent questions, you may email the maintainer of MultiABEL via ```xia dot shen at ed dot ac dot uk```.
+If you have specific questions, you may email the maintainer of MultiABEL via ```xia dot shen at ed dot ac dot uk```.
 
 
