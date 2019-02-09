@@ -148,6 +148,29 @@ There is not a substantial structure in this example data, so we do not expect t
 
 MultiABEL allows convenient and fast GWAS of multiple phenotypes directly from summary association statistics, i.e. genome-wide (or sufficiently large subset of) association results containing estimated genetic effects, standard errors, and reference alleles information. Here, we directly provide an example, and the data can be obtained from: <https://www.dropbox.com/sh/2xftha9wcanobo4/AAD6ygCMyUv_gpDtIwRtw-Mta?dl=0>
 
+Prior to loading the summary association statistics, you need names of a set of independent SNPs. These SNPs will be used for estimating the phenotypic correlation between phenotypes, accounting for partial sample overlap. The number of such SNPs are not important, as long as it's large enough, e.g. thousands. However, LD-pruning might be important. We provide a set of LD-pruned SNPs that can be used for any set of European-ancestry GWAS, can be loaded as:
+```
+load('indep.snps.RData')
+```
+Thereafter, the summary statistics data can be loaded as:
+```
+data <- load.summary(c('height.txt', 'weight.txt', 'bmi.txt'), indep.snps = indep.snps)
+```
+```
+loading data ...
+Progress: 100%
+checking markers ...
+Progress: 100%
+cleaning data ...
+Progress: 100%
+correcting parameters ...
+Progress: 100%
+adjusting sample size ... done.
+finalizing summary statistics ...
+Progress: 100%
+samples partially overlap!
+estimating shrinkage phenotypic correlations ... done.
+```
 
 ## For Help 
 For direct R documentation of the two functions above, you can simply use question mark in R:
