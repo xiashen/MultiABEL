@@ -33,7 +33,7 @@ citEntry(entry="Article",
 citEntry(entry="Article",
          title = "Beyond power: Multivariate discovery, replication, and interpretation of pleiotropic loci using summary association statistics",
          author = personList(as.person("Zheng Ning"),
-                             as.person("Yakov Tsepilov")
+                             as.person("Yakov Tsepilov"),
                              as.person("..."),
                              as.person("Yudi Pawitan"),
                              as.person("Chris S. Haley"),
