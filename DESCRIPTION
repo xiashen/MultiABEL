@@ -7,7 +7,7 @@ Author: Xia Shen, Zheng Ning, Yakov Tsepilov
 Maintainer: Xia Shen <xia.shen@ed.ac.uk>
 Description: Multivariate genome-wide association analyses. The analysis can be
     performed on individual-level data or multiple single-trait genome-wide summary
-    statistics.
+    statistics. See tutorial at: https://github.com/xiashen/MultiABEL
 Depends:
     R (>= 3.0),
     svMisc,
