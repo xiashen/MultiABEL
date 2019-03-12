@@ -2,14 +2,23 @@
 Multi-Trait Genome-Wide Association Analysis
 
 ## Installation
-Run the following command in R to install the MultiABEL package:
+Run the following command in R to install the MultiABEL package from CRAN (stable but not latest!):
 ``` r
 install.packages("MultiABEL")
 ```
-or its developer version:
+
+To install the developer version from R-Forge:
 ``` r
 install.packages("MultiABEL", repos="http://R-Forge.R-project.org")
 ```
+
+To install the developer version from GitHub:
+``` r
+require(devtools)
+install_github("xiashen/MultiABEL")
+```
+
+As only CRAN compiles for macOS platform, so for the developer versions, both Linux and Mac users need to have gfortran compiler set up.
 
 MultiABEL can be loaded in R via:
 ``` r
