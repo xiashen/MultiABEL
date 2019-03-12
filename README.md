@@ -203,18 +203,28 @@ set.seed(510)
 MV.cor.test(marker = "rs905938", gwa.1 = example.gwa.1, gwa.2 = example.gwa.2, R.1 = example.R.1,
             R.2 = example.R.2, traits = traits)
 ```
-
+```
+## correlation     ci.left    ci.right 
+##      0.8281      0.4667      1.0000
+```
 The function computes Kendall rank correlation coefficient by default. Users can choose to compute Pearson's or Spearman's correlation. For example, Pearson's correlation can be computed by:
 
 ```
 MV.cor.test(marker = "rs905938", gwa.1 = example.gwa.1, gwa.2 = example.gwa.2, R.1 = example.R.1,
             R.2 = example.R.2, method = "pearson", traits = traits)
 ```
-
+```
+## correlation     ci.left    ci.right 
+##      0.9825      0.8447      0.9922
+```
 The `ci.left` and `ci.right` reported above are 2.5% and 97.5% quantiles of the estimated distribution of the correlation coefficient, respectively. The estimated distribution is based on 10,000 times Monte-Carlo simulations by default. Users can customize these arguments by varying `probs` and `nrep` as below:
 
 ```
 MV.cor.test(marker = "rs905938", gwa.1 = example.gwa.1, gwa.2 = example.gwa.2, R.1 = example.R.1, probs = c(0.1, 0.9), nrep = 1000, R.2 = example.R.2, traits = traits)
+```
+```
+## correlation     ci.left    ci.right 
+##      0.8281      0.6000      0.8667
 ```
 
 Now the reported `ci.left` and `ci.right` are 10% and 90% quantiles based on 1,000 times Monte-Carlo simulations.
@@ -332,6 +342,25 @@ After specifying the traits we are interested in, we can perform conditional mul
 ```
 traits <- c("HEIGHT", "BMI", "HIP", "WC", "WHR", "WEIGHT")
 MultiSecondary(gwa.region = example.gwas, LD.ref = example.LD, snp.ref = example.snp.ref, R.ref = example.R.ref, p.threshold = 5e-8, tol = 0.9, traits = traits, T2.return = TRUE)
+```
+```
+## $T2.sele
+## rs12033847 rs12138008 
+##      55.72      52.07 
+## 
+## $p.sele
+## rs12033847 rs12138008 
+##  3.310e-10  1.807e-09 
+## 
+## $b_joint.sele
+##              HEIGHT       BMI       HIP        WC      WHR    WEIGHT
+## rs12033847  0.01935 -0.004438 -0.008557  0.004862 0.006473  0.006879
+## rs12138008 -0.02020 -0.011421 -0.013988 -0.015390 0.002394 -0.029779
+## 
+## $se_b_joint.sele
+##              HEIGHT      BMI      HIP       WC      WHR   WEIGHT
+## rs12033847 0.003959 0.004616 0.005495 0.005405 0.005194 0.005930
+## rs12138008 0.004091 0.005777 0.006879 0.006771 0.006589 0.006326
 ```
 
 The result is a list with elements of `T2.sele`: The conditional test statistic of the selected variants. It will be provided if `T2.return = TRUE`; `p.sele`: The conditional p-value of the selected variants; `b_joint.sele`: The conditional effect size of the selected variants; `se_b_joint.sele`: The conditional standard error of the selected variants.
