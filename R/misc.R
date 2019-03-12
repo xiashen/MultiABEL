@@ -13,6 +13,7 @@
 	packageStartupMessage(paste("Version ", pkgVersion, " (", pkgDate, ") installed", sep = ""))
 	packageStartupMessage(paste("Author: ", pkgAuthor, sep = ""))
 	packageStartupMessage(paste("Maintainer: ", pkgMaintainer, "\n", sep = ""))
+	packageStartupMessage('Tutorial: https://github.com/xiashen/MultiABEL\n')
 	packageStartupMessage('Use citation("MultiABEL") to know how to cite this work.\n')
 }
 

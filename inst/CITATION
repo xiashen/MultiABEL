@@ -19,34 +19,36 @@ citEntry(entry="Article",
                              as.person("Yurii S. Aulchenko")),
          journal      = "Nature Communications",
          year         = "2017",
-         volume       = "0",
-         number       = "0",
+         volume       = "8",
+         number       = "447",
          pages        = "0-0",
          
          textVersion = 
          paste("Shen X, Klaric L, Sharapov S, Mangino M, Ning Z, Wu D, Trbojevic-Akmacic I, Pucic-Bakovic M, Rudan I, Polasek O, Hayward C, Spector TD, Wilson JF, Lauc G, Aulchenko YS (2017).", 
                "Multivariate discovery and replication of five novel loci associated with Immunoglobulin G N-glycosylation.",
                "Nature Communications.",
-               "In press.")
+               "8:447.")
 )
 
 citEntry(entry="Article",
-         title = "Discovery, replication, and in silico functional investigation of 22 new pleiotropic anthropometric loci",
-         author = personList(as.person("Xia Shen"),
+         title = "Beyond power: Multivariate discovery, replication, and interpretation of pleiotropic loci using summary association statistics",
+         author = personList(as.person("Zheng Ning"),
+                             as.person("Yakov Tsepilov")
                              as.person("..."),
                              as.person("Yudi Pawitan"),
                              as.person("Chris S. Haley"),
-                             as.person("Yurii S. Aulchenko")),
+                             as.person("Yurii S. Aulchenko"),
+                             as.person("Xia Shen")),
          journal      = "Submitted",
-         year         = "2017",
+         year         = "2019",
          volume       = "0",
          number       = "0",
          pages        = "0-0",
-         url          = "https://doi.org/10.1101/022269",
+         url          = "",
          
          textVersion = 
-         paste("Shen X, ..., Pawitan Y, Haley CS, Aulchenko YS (2017).", 
-               "Discovery, replication, and in silico functional investigation of 22 new pleiotropic anthropometric loci.",
+         paste("Ning Z, Tsepilov Y, ..., Pawitan Y, Haley CS, Aulchenko YS, Shen X (2019).", 
+               "Beyond power: Multivariate discovery, replication, and interpretation of pleiotropic loci using summary association statistics.",
                "Submitted.",
-               "URL https://doi.org/10.1101/022269")
+               "URL ")
 )
