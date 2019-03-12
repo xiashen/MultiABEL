@@ -1,0 +1,2 @@
+example.MV.cor.test: example.gwa.1 example.gwa.2 example.R.1 example.R.2
+example.MultiSecondary: example.gwas example.LD example.R.ref example.snp.ref

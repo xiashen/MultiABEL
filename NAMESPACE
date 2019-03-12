@@ -1,0 +1,8 @@
+useDynLib(MultiABEL)
+importFrom("stats", "cor", "density", "lm", "na.omit", "pchisq", "pf",
+             "qchisq", "qnorm", "quantile")
+importFrom("utils", "packageDescription", "read.table", "write.table")
+import("svMisc", "data.table")
+export("Multivariate", "MultiLoad","load.summary", "MultiSummary", "MultiSecondary", "MV.cor.test")
+exportClasses("multi.summary", "multi.loaded")
+useDynLib(MultiABEL, .registration = TRUE)

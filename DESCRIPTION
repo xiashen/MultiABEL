@@ -1,0 +1,22 @@
+Package: MultiABEL
+Type: Package
+Title: Multi-Trait Genome-Wide Association Analysis
+Version: 1.1-9
+Date: 2018-05-15
+Author: Xia Shen, Zheng Ning, Yakov Tsepilov
+Maintainer: Xia Shen <xia.shen@ed.ac.uk>
+Description: Multivariate genome-wide association analyses. The analysis can be
+    performed on individual-level data or multiple single-trait genome-wide summary
+    statistics.
+Depends:
+    R (>= 3.0),
+    svMisc,
+    data.table
+Suggests:
+    GenABEL,
+    DatABEL
+License: GPL (>= 2)
+URL: https://github.com/xiashen/MultiABEL
+LazyLoad: yes
+Packaged: 2019-02-08 07:43 CET; xia
+RoxygenNote: 6.1.1

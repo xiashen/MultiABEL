@@ -1,0 +1,101 @@
+2019-02-08 07:43 xia
+
+    * Updated to version 1.1-9
+    * Re-Fixed F-stat degrees of freedom bug
+    * MultiSecondary() and MV.cor.test() added
+    * Re-compiled and tested on macOS Mojave 
+
+2018-05-15 13:21 xia
+    
+    * Updated to version 1.1-8
+    * Fixed F-stat degrees of freedom bug
+    * Effective sample size reported
+
+2018-03-22 12:50 xia
+    
+    * Updated to version 1.1-7
+    * Added F-stat test option for high-dimensional 
+      cases (argument high.dim)
+
+2017-06-14 23:50 xia
+    
+    * Updated to version 1.1-6
+    * R CMD check --as-cran for CRAN submission
+
+2016-12-24 18:09 xia
+
+    * MultiSummary() NaN bug fixed when index 
+      is specified.
+
+2016-05-07 14:16 xia
+
+    * Updated to version 1.1-5
+    * MultiSummary() updated:
+      option type = 'direct' gives only p-values
+      with very fast calculation;
+      'outbred', 'inbred', or 'precise' will
+      estimate the conditional genetic effects
+      for each of the traits
+    * load.summary() fixedN bug fixed
+
+2016-04-16 21:41 xia
+
+    * load.summary() updated by Yurii to allow
+      flexible input file column names and fixable
+      sample size by the user
+
+2016-02-25 15:52 xia
+
+    * Updated to version 1.1-4
+    * MultiSummary() implemented using T-stats
+      as option type = 'direct'
+
+2015-08-20 09:09 xia
+
+    * Updated to version 1.1-3
+    * load.summary() case not sensitive anymore
+      for file headers
+    * load.summary() stringsAsFactors bug fixed;
+      Reversed order of traits bug fixed
+    * MultiSummary() coefficients standard errors
+      provided for outbred HWE populations;
+      Traits can be partially selected for multi-
+      trait scans
+
+2015-07-31 15:54 xia
+
+    * Updated to version 1.1-2
+    * Multivariate() updated to two procedures:
+      MultiLoad() + Multivariate()
+      where the former loads individual-level
+      data and reports detailed single-trait
+      summary statistics, and the latter calls
+      MultiSummary(type = 'precise') procedure
+
+2015-06-05 02:01  xia
+
+    * Updated to version 1.1-1
+    * duplicated marker names bug fixed 
+      for load.summary()
+
+2015-06-02 02:01  xia
+
+    * Updated to version 1.1-0
+    * MultiSummary() module included
+      for multi-trait GWAS using summary stats
+    * MVGWA modules recoded in Fortran 90
+
+2014-10-28 15:00  xia
+
+    * Updated to version 1.0-1 for 
+      technical review of the GenABEL project
+    * Replication analysis confirmed
+    * Meta-analysis implemented
+      
+2014-02-07 15:25  xia
+
+    * MultiABEL packaged! Initial version 0.1-0
+    * Multivariate GWAS analysis via MANOVA
+      	Compatible with GenABEL objects
+      	Compatible with DatABEL format
+      	

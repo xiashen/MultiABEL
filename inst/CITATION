@@ -1,0 +1,52 @@
+citHeader("If you use the MultiLoad() or Multivariate() procedures, please cite the 1st reference below. If you use the load.summary() or MultiSummary() procedures, please cite the 2nd reference below.")
+
+citEntry(entry="Article",
+         title = "Multivariate discovery and replication of five novel loci associated with Immunoglobulin G N-glycosylation",
+         author = personList(as.person("Xia Shen"),
+                             as.person("Lucija Klaric"),
+                             as.person("Sodbo Sharapov"),
+                             as.person("Massimo Mangino"),
+                             as.person("Zheng Ning"),
+                             as.person("Di Wu"),
+                             as.person("Irena Trbojevic-Akmacic"),
+                             as.person("Maja Pucic-Bakovic"),
+                             as.person("Igor Rudan"),
+                             as.person("Ozren Polasek"),
+                             as.person("Caroline Hayward"),
+                             as.person("Timothy D. Spector"),
+                             as.person("James F. Wilson"),
+                             as.person("Gordan Lauc"),
+                             as.person("Yurii S. Aulchenko")),
+         journal      = "Nature Communications",
+         year         = "2017",
+         volume       = "0",
+         number       = "0",
+         pages        = "0-0",
+         
+         textVersion = 
+         paste("Shen X, Klaric L, Sharapov S, Mangino M, Ning Z, Wu D, Trbojevic-Akmacic I, Pucic-Bakovic M, Rudan I, Polasek O, Hayward C, Spector TD, Wilson JF, Lauc G, Aulchenko YS (2017).", 
+               "Multivariate discovery and replication of five novel loci associated with Immunoglobulin G N-glycosylation.",
+               "Nature Communications.",
+               "In press.")
+)
+
+citEntry(entry="Article",
+         title = "Discovery, replication, and in silico functional investigation of 22 new pleiotropic anthropometric loci",
+         author = personList(as.person("Xia Shen"),
+                             as.person("..."),
+                             as.person("Yudi Pawitan"),
+                             as.person("Chris S. Haley"),
+                             as.person("Yurii S. Aulchenko")),
+         journal      = "Submitted",
+         year         = "2017",
+         volume       = "0",
+         number       = "0",
+         pages        = "0-0",
+         url          = "https://doi.org/10.1101/022269",
+         
+         textVersion = 
+         paste("Shen X, ..., Pawitan Y, Haley CS, Aulchenko YS (2017).", 
+               "Discovery, replication, and in silico functional investigation of 22 new pleiotropic anthropometric loci.",
+               "Submitted.",
+               "URL https://doi.org/10.1101/022269")
+)
