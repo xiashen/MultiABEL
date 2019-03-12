@@ -21,7 +21,6 @@ require(MultiABEL)
 ```
 
 ## {.tabset}
-
 ### Multi-Trait GWAS using Genotypes from SNP Arrays 
 Let us first load the example data in the R package GenABEL:
 ``` r
