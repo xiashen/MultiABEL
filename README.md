@@ -547,11 +547,31 @@ head(result.plus)
 There is not a substantial structure in this example data, so we do not expect to see inflated signals being corrected away by linear mixed models.
 
 ## For Help 
+
 For direct R documentation of the two functions above, you can simply use question mark in R, e.g.
 ```
 ?load.summary
 ?MultiSummary
 ```
 If you have specific questions, you may email the maintainer of MultiABEL via ```xia dot shen at ed dot ac dot uk```.
+
+## References
+
+To know how to cite this work, use command:
+``` r
+citation("MultiABEL")
+``` 
+	## If you use the MultiLoad() or Multivariate() procedures, please cite the 1st reference below. If you use the load.summary() or ## MultiSummary() procedures, please
+	## cite the 2nd reference below.
+	## 
+	##   Shen X, Klaric L, Sharapov S, Mangino M, Ning Z, Wu D, Trbojevic-Akmacic I, Pucic-Bakovic M, Rudan I, Polasek O, Hayward C, ## Spector TD, Wilson JF, Lauc G,
+	##   Aulchenko YS (2017). Multivariate discovery and replication of five novel loci associated with Immunoglobulin G N-glycosylation. ## Nature Communications. 8:447.
+	## 
+	##   Ning Z, Tsepilov Y, ..., Pawitan Y, Haley CS, Aulchenko YS, Shen X (2019). Beyond power: Multivariate discovery, replication, and ## interpretation of pleiotropic
+	##   loci using summary association statistics. Submitted. URL
+	## 
+	## To see these entries in BibTeX format, use 'print(<citation>, bibtex=TRUE)', 'toBibtex(.)', or set 'options(citation.bibtex.max=999)'.
+
+
 
 
