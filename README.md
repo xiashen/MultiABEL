@@ -172,6 +172,172 @@ samples partially overlap!
 estimating shrinkage phenotypic correlations ... done.
 ```
 
+## Multi-Traits Correlation Replication
+
+Aiming to replicate the locus pleiotropic profile in the replication sample, we develop this Monte-Carlo based correlation replication strategy. 
+
+#### What Data Are Required?
+
+* GWAS summary statistics for sample 1, includes effect alleles (column name `A1`), reference alleles (column name `A2`) and two columns for each trait: effect sizes (column name `Trait.beta`) and standard errors (column name `Trait.se`). 
+
+* GWAS summary statistics for sample 2, includes effect alleles (column name `A1`), reference alleles (column name `A2`) and two columns for each trait: effect sizes (column name `Trait.beta`) and standard errors (column name `Trait.se`). 
+
+* Phenotypic correlation matrix for the traits in sample 1.
+
+* Phenotypic correlation matrix for the traits in sample 2.
+
+For summary-level data, all the data above are available in the outputs of **load.summary** function. For individual-level data, the GWAS summary statistics and phenotypic correlation matrix can be computed directly.
+
+Let us load the example data by:
+
+```
+data(example.MV.cor.test)
+```
+
+#### An Example of Multi-Traits Correlation Replication
+
+After specifying the traits we are interested in, we can perform the multi-traits correlation replication for a SNP as below:
+```
+traits <- c("HEIGHT", "BMI", "HIP", "WC", "WHR", "WEIGHT")
+set.seed(510)
+MV.cor.test(marker = "rs905938", gwa.1 = example.gwa.1, gwa.2 = example.gwa.2, R.1 = example.R.1,
+            R.2 = example.R.2, traits = traits)
+```
+
+The function computes Kendall rank correlation coefficient by default. Users can choose to compute Pearson's or Spearman's correlation. For example, Pearson's correlation can be computed by:
+
+```
+MV.cor.test(marker = "rs905938", gwa.1 = example.gwa.1, gwa.2 = example.gwa.2, R.1 = example.R.1,
+            R.2 = example.R.2, method = "pearson", traits = traits)
+```
+
+The `ci.left` and `ci.right` reported above are 2.5% and 97.5% quantiles of the estimated distribution of the correlation coefficient, respectively. The estimated distribution is based on 10,000 times Monte-Carlo simulations by default. Users can customize these arguments by varying `probs` and `nrep` as below:
+
+```
+MV.cor.test(marker = "rs905938", gwa.1 = example.gwa.1, gwa.2 = example.gwa.2, R.1 = example.R.1, probs = c(0.1, 0.9), nrep = 1000, R.2 = example.R.2, traits = traits)
+```
+
+Now the reported `ci.left` and `ci.right` are 10% and 90% quantiles based on 1,000 times Monte-Carlo simulations.
+
+#### Visualizing the Results of Multi-Traits Correlation Replication
+
+To visualize the results of multi-traits correlation replication, we can make a plot by:
+
+```
+require(ggplot2)
+require(cowplot)
+set.seed(510)
+res.mv.cor <- MV.cor.test(marker = "rs905938", gwa.1 = example.gwa.1, gwa.2 = example.gwa.2, R.1 = example.R.1,
+                          R.2 = example.R.2, traits = traits, plot = TRUE)
+df.plot <- res.mv.cor$df.plot
+
+p1 <- ggplot()+ 
+  geom_point(data=df.plot, mapping=aes(x=rank.1, y=rank.2, color=traits), size=2) + 
+  geom_point(data=df.plot, mapping=aes(x=rank.1, y=rank.2, color=traits, size = se.beta), alpha = 0.2) + 
+  stat_smooth(data=df.plot, mapping=aes(x=rank.1, y=rank.2), method = "lm", se=FALSE, color="black", size=0.3, fullrange = TRUE) + 
+  coord_cartesian(xlim = c(0.5, 6.5), ylim = c(0.5, 6.5)) + xlim(0,200) + 
+  scale_size_continuous(range = c(3, 10)) +
+  theme(axis.text=element_text(size=10),
+        axis.title=element_text(size=14,face="bold"), 
+        strip.text.x = element_text(size = 16))+ 
+  theme(axis.title.x=element_blank(),axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),axis.title.y=element_blank(), legend.position = c(0.8,0.3), 
+        legend.background=element_rect(colour='NA', fill='transparent'), legend.key=element_blank(), 
+        legend.title=element_text(size=14), 
+        legend.text=element_text(size=12), legend.key.size = unit(1.4, 'lines')) + 
+  guides(colour = guide_legend(override.aes = list(alpha = 1)), size = FALSE) +
+  scale_colour_discrete(name = "Traits")
+
+p2 <- ggplot(data=df.plot, aes(x=rank.1,y=mean.conc)) +
+  coord_cartesian(xlim = c(0.5, 6.5), ylim = c(0, 5.5)) + 
+  geom_bar(stat = "identity", aes(fill=traits), width = 0.4) + theme(legend.position="none") + theme(
+    strip.background = element_blank(),
+    strip.text.x = element_blank()
+  ) + geom_errorbar(aes(ymin = mean.conc - sd.conc,ymax = mean.conc + sd.conc), width = 0.1)  + 
+  theme(axis.title.x=element_blank(),axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),axis.title.y=element_blank()) + 
+  theme(plot.margin = unit(c(0, 0, 0, 0), "cm"))
+
+plot_grid(p1,p2,ncol=1,align = "v", rel_heights = c(2,1))
+```
+
+Each color represents one trait. There are two parts in this plot. In both parts, the x axis is the ranks of estimated marginal effect sizes in ascending order from sample 1. For the upper part, the y axis is the ranks from sample 2. Therefore each dot represents the rank in sample 1 and sample 2 for one trait. The radius of shade around a dot is proportional to the standard error of the estimated marginal effect. The standard errors are computed with variances in sample 1 and sample 2 using inverse variance weights. To facilitate visualization, a regression line is added. Its slope equals to the Spearman's correlation. In the lower part, the y axis is the mean number of concordant pairs generated by a trait. If a trait has a very low bar, it means the trait disturbs the consistency of the whole rank pattern. The whiskers represents $\pm$ 1 times the standard deviation about the mean.
+
+
+## Conditional Multi-Trait Analysis using Summary Statistics
+
+To detect additional associated SNPs at loci discovered in multi-trait analysis, we can perform conditional analysis in multi-trait analysis framework. We use the following example to illustrate how to perform such analysis based on single-trait GWAS summary statistics.
+
+#### What Data Are Required?
+
+* GWAS summary statistics for multiple traits at a locus, includes effect alleles (column name `A1`), reference alleles (column name `A2`) and three columns for each trait: effect sizes (column name `Trait.beta`), standard errors (column name `Trait.se`) and sample sizes (column name `N`). 
+
+* Phenotypic correlation matrix for the traits.
+
+The two datasets above are available in the outputs of load.summary function. 
+
+* A reference LD correlation matrix including SNPs at the locus and their corresponding reference alleles. In this manual, we provide commands to compute LD matrix and get reference allele information based on 1000 Genomes European-ancestry samples.
+
+Let us load the example data by:
+
+```
+data(example.MultiSecondary)
+```
+
+#### How to compute the reference LD correlation matrix
+
+As an example, we can use the following commands to get the LD matrix and reference allele information for the SNPs in example.gwas dataset. **Note: [plink 1.9](https://www.cog-genomics.org/plink2) is needed for the following commands.**
+
+Firstly, we can download and unzip genotypes of 1000 Genomes European-ancestry samples (provided by LDSC project) by:
+
+```
+download.file("https://data.broadinstitute.org/alkesgroup/LDSCORE/1000G_Phase3_plinkfiles.tgz", 
+destfile = paste0(find.package('MultiABEL'), "/1000G_Phase3_plinkfiles.tgz"))
+untar(paste0(find.package('MultiABEL'), "/1000G_Phase3_plinkfiles.tgz"),exdir=find.package('MultiABEL'))
+```
+    
+Then we specify the path to plink (**Note: Please change the path below to your own path to the plink executable file**) by: 
+
+```
+path.plink <- "path/to/plink/executable/file/plink"
+```
+
+and the path to 1000 Genomes data by:
+
+```
+path.1kG <- paste0(find.package('MultiABEL'),"/1000G_EUR_Phase3_plink")
+```
+
+Now, because the SNPs are at chromosome 1, we can get the LD matrix and reference allele imformation for the SNPs in this sumamry statistics data frame by:
+
+```
+snps <- rownames(example.gwas)
+write.table(snps, file = paste0(snps[1],"_snp_list.txt"), quote = F, row.names = F, col.names = F)
+chr <- 1
+
+system(paste0(path.plink," -bfile ", path.1kG,"/1000G.EUR.QC.",chr," --r square --extract ", snps[1], "_snp_list.txt --out ", snps[1], " --noweb"))
+system(paste0(path.plink," -bfile ", path.1kG,"/1000G.EUR.QC.",chr," --freq --extract ", snps[1], "_snp_list.txt --out ", snps[1], " --noweb"))
+
+LD_1kG <- as.matrix(read.table(paste0(snps[1], ".ld")))
+maf_1kG <- read.table(paste0(snps[1], ".frq"), header = T)
+snp_ref_1kG <- maf_1kG[,"A2"]
+names(snp_ref_1kG) <- maf_1kG[,"SNP"]
+colnames(LD_1kG) <- rownames(LD_1kG) <- maf_1kG$SNP
+```
+
+#### An Example of Conditional Multi-Trait Analysis 
+
+After specifying the traits we are interested in, we can perform conditional multi-trait analysis for a locus as below:
+
+```
+traits <- c("HEIGHT", "BMI", "HIP", "WC", "WHR", "WEIGHT")
+MultiSecondary(gwa.region = example.gwas, LD.ref = example.LD, snp.ref = example.snp.ref, R.ref = example.R.ref, p.threshold = 5e-8, tol = 0.9, traits = traits, T2.return = TRUE)
+```
+
+The result is a list with elements of `T2.sele`: The conditional test statistic of the selected variants. It will be provided if `T2.return = TRUE`; `p.sele`: The conditional p-value of the selected variants; `b_joint.sele`: The conditional effect size of the selected variants; `se_b_joint.sele`: The conditional standard error of the selected variants.
+
+The p-value threshold for significance is specified by argument `p.threshold`. The tolerance for multicollinearity among selected genetic variants is given by argument `tol`. Users may customize these two arguments to suit their needs.
+
 ## For Help 
 For direct R documentation of the two functions above, you can simply use question mark in R:
 ```
