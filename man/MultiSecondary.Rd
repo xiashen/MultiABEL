@@ -17,7 +17,7 @@ MultiSecondary(gwa.region, LD.ref, snp.ref, R.ref, p.threshold = 5e-08,
 \item{snp.ref}{The reference alleles of SNPs in the reference LD correlation matrix. The names of the vector 
 should be SNP names in reference sample}
 
-\item{R.ref}{Shrinkage phenotypic correlation matrix, achieved from \code{MultiSummary()}}
+\item{R.ref}{Shrinkage phenotypic correlation matrix, achieved from \code{load.summary()}}
 
 \item{p.threshold}{P-value threshold in conditional analysis}
 

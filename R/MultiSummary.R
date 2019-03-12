@@ -119,7 +119,7 @@
 		mf <- mean(fs)
 		n.eff <- mf*2/(mf - 1) + m + 1 # effective N: fit a F-distribution to the observed fstat using moment estimator
 		res$n <- n 
-		res$effective.n <- round(n.eff, digits = 2)
+		# res$effective.n <- round(n.eff, digits = 2)
 		if (!high.dim) {
 			# if (n.eff < 5*m) {
 			#	warning('Effective sample size < 5 times number of phenotypes. Consider argument high.dim = TRUE.')
@@ -154,7 +154,7 @@
 		mf <- mean(fs)
 		n.eff <- mf*2/(mf - 1) + m + 1 # effective N: fit a F-distribution to the observed fstat using moment estimator
 		res$n <- n 
-		res$effective.n <- round(n.eff, digits = 2)
+		# res$effective.n <- round(n.eff, digits = 2)
 		if (!high.dim) {
 			# if (n.eff < 5*m) {
 			#	warning('Effective sample size < 5 times number of phenotypes. Consider argument high.dim = TRUE.')
@@ -189,7 +189,7 @@
 		mf <- mean(fs)
 		n.eff <- mf*2/(mf - 1) + m + 1 # effective N: fit a F-distribution to the observed fstat using moment estimator
 		res$n <- n 
-		res$effective.n <- round(n.eff, digits = 2)
+		# res$effective.n <- round(n.eff, digits = 2)
 		if (!high.dim) {
 			# if (n.eff < 5*m) {
 			#	warning('Effective sample size < 5 times number of phenotypes. Consider argument high.dim = TRUE.')
@@ -224,7 +224,7 @@
 		mf <- mean(fs)
 		n.eff <- mf*2/(mf - 1) + m + 1 # effective N: fit a F-distribution to the observed fstat using moment estimator
 		res$n <- n 
-		res$effective.n <- round(n.eff, digits = 2)
+		# res$effective.n <- round(n.eff, digits = 2)
 		if (!high.dim) {
 			# if (n.eff < 5*m) {
 			#	warning('Effective sample size < 5 times number of phenotypes. Consider argument high.dim = TRUE.')

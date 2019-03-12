@@ -6,7 +6,7 @@
 #' @param LD.ref Regional LD matrix including SNPs in gwa.region
 #' @param snp.ref The reference alleles of SNPs in the reference LD correlation matrix. The names of the vector 
 #' should be SNP names in reference sample
-#' @param R.ref Shrinkage phenotypic correlation matrix, achieved from \code{MultiSummary()}
+#' @param R.ref Shrinkage phenotypic correlation matrix, achieved from \code{load.summary()}
 #' @param p.threshold P-value threshold in conditional analysis
 #' @param tol Tolerance for multicollinearity
 #' @param traits Traits to be analyzed

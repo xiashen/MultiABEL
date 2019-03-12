@@ -11,7 +11,8 @@ Description: Multivariate genome-wide association analyses. The analysis can be
 Depends:
     R (>= 3.0),
     svMisc,
-    data.table
+    data.table,
+    mvtnorm
 Suggests:
     GenABEL,
     DatABEL
