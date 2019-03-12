@@ -538,10 +538,10 @@ head(result.plus)
 There is not a substantial structure in this example data, so we do not expect to see inflated signals being corrected away by linear mixed models.
 
 ## For Help 
-For direct R documentation of the two functions above, you can simply use question mark in R:
+For direct R documentation of the two functions above, you can simply use question mark in R, e.g.
 ```
-?MultiLoad
-?Multivariate
+?load.summary
+?MultiSummary
 ```
 If you have specific questions, you may email the maintainer of MultiABEL via ```xia dot shen at ed dot ac dot uk```.
 
