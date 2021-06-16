@@ -61,7 +61,7 @@ Prior to loading the summary association statistics, you need names of a set of 
 ``` r
 load('indep.snps.RData')
 ```
-Thereafter, the summary statistics data can be loaded as:
+However, for your specific GWAS, these SNPs might not be always available. An alternative is to replace these SNPs with the SNPs that have relatively low minor allele frequencies (MAF) in your GWAS -- they allow good estimation of the phenotypic correlations (see https://www.biorxiv.org/content/10.1101/2020.12.10.419325v2). Thereafter, the summary statistics data can be loaded as:
 ``` r
 data <- load.summary(c('height.txt', 'weight.txt', 'bmi.txt'), indep.snps = indep.snps)
 ```
@@ -562,7 +562,7 @@ To know how to cite this work, use command:
 citation("MultiABEL")
 ``` 
 	## If you use the MultiLoad() or Multivariate() procedures, please cite the 1st reference below. 
-	## If you use the load.summary() or MultiSummary() procedures, please cite both references below.
+	## If you use the load.summary() or MultiSummary() procedures, please cite the three references below.
 	## If you use the MultiRep() procedure, please cite the 2nd reference below.
 	## 
 	##   Shen X, Klaric L, Sharapov S, Mangino M, Ning Z, Wu D, Trbojevic-Akmacic I, Pucic-Bakovic M, Rudan I, Polasek O, Hayward C, 
@@ -572,6 +572,9 @@ citation("MultiABEL")
 	##   Ning Z, Tsepilov YA, Sharapov SZ, Wang Z, Grishenko AK, Feng X, Shirali M, Joshi PK, Wilson JF, Pawitan Y, Haley CS, Aulchenko YS, Shen X (2019). 
 	##   Nontrivial Replication of Loci Detected by Multi-Trait Methods. 
 	##   Frontiers in Genetics, 12: 627989.
+	##
+	##   Li T, Ning Z, Shen X (2021). Improved estimation of phenotypic correlations using summary association statistics. 
+	##   on BioRxiv: https://www.biorxiv.org/content/10.1101/2020.12.10.419325v2
 	## 
 	## To see these entries in BibTeX format, use 'print(<citation>, bibtex=TRUE)', 'toBibtex(.)', or set 'options(citation.bibtex.max=999)'.
 
