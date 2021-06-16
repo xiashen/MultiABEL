@@ -12,7 +12,7 @@ To install the developer version from R-Forge:
 install.packages("MultiABEL", repos="http://R-Forge.R-project.org")
 ```
 
-To install the developer version from GitHub:
+To install the latest developer version from GitHub:
 ``` r
 require(devtools)
 install_github("xiashen/MultiABEL")
