@@ -561,14 +561,17 @@ To know how to cite this work, use command:
 ``` r
 citation("MultiABEL")
 ``` 
-	## If you use the MultiLoad() or Multivariate() procedures, please cite the 1st reference below. If you use the load.summary() or ## MultiSummary() procedures, please
-	## cite the 2nd reference below.
+	## If you use the MultiLoad() or Multivariate() procedures, please cite the 1st reference below. 
+	## If you use the load.summary() or MultiSummary() procedures, please cite both references below.
+	## If you use the MultiRep() procedure, please cite the 2nd reference below.
 	## 
-	##   Shen X, Klaric L, Sharapov S, Mangino M, Ning Z, Wu D, Trbojevic-Akmacic I, Pucic-Bakovic M, Rudan I, Polasek O, Hayward C, ## Spector TD, Wilson JF, Lauc G,
-	##   Aulchenko YS (2017). Multivariate discovery and replication of five novel loci associated with Immunoglobulin G N-glycosylation. ## Nature Communications. 8:447.
+	##   Shen X, Klaric L, Sharapov S, Mangino M, Ning Z, Wu D, Trbojevic-Akmacic I, Pucic-Bakovic M, Rudan I, Polasek O, Hayward C, 
+	##   Spector TD, Wilson JF, Lauc G, Aulchenko YS (2017). Multivariate discovery and replication of five novel loci associated with Immunoglobulin G N-glycosylation. 
+	##   Nature Communications, 8: 447.
 	## 
-	##   Ning Z, Tsepilov Y, ..., Pawitan Y, Haley CS, Aulchenko YS, Shen X (2019). Beyond power: Multivariate discovery, replication, and ## interpretation of pleiotropic
-	##   loci using summary association statistics. Submitted. URL
+	##   Ning Z, Tsepilov YA, Sharapov SZ, Wang Z, Grishenko AK, Feng X, Shirali M, Joshi PK, Wilson JF, Pawitan Y, Haley CS, Aulchenko YS, Shen X (2019). 
+	##   Nontrivial Replication of Loci Detected by Multi-Trait Methods. 
+	##   Frontiers in Genetics, 12: 627989.
 	## 
 	## To see these entries in BibTeX format, use 'print(<citation>, bibtex=TRUE)', 'toBibtex(.)', or set 'options(citation.bibtex.max=999)'.
 
